@@ -1,0 +1,38 @@
+package com.ibrahim.restaurant.dto.restaurant;
+
+import com.ibrahim.restaurant.dto.address.AddressDto;
+import com.ibrahim.restaurant.dto.operatinghours.OperatingHoursDto;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+@Builder
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+public class RestaurantUpdateRequestDto {
+
+    @NotBlank(message = "Restaurant name is required")
+    private String name;
+
+    @NotBlank(message = "Cuisine type is required")
+    private String cuisineType;
+
+    @NotBlank(message = "Contact information is required")
+    private String contactInformation;
+
+    @Valid
+    private AddressDto address;
+
+    @Valid
+    private OperatingHoursDto operatingHours;
+
+    @Size(min = 1, message = "At least one photo ID is required")
+    private List<String> photoIds;
+}
