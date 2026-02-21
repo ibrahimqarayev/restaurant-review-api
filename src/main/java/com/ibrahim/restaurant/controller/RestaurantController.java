@@ -27,10 +27,10 @@ public class RestaurantController {
 
     @PostMapping
     public ResponseEntity<RestaurantDto> createRestaurant(
-            @Valid @RequestBody RestaurantCreateRequestDto request) {
+            @Valid @RequestBody RestaurantCreateRequestDto createRequestDto) {
 
         RestaurantCreateRequest restaurantCreateRequest = restaurantMapper
-                .toRestaurantCreateRequest(request);
+                .toRestaurantCreateRequest(createRequestDto);
 
         Restaurant restaurant = restaurantService.createRestaurant(restaurantCreateRequest);
 
