@@ -40,17 +40,17 @@ public class FilesSystemStorageService implements StorageService {
     }
 
     @Override
-    public String store(MultipartFile file, String fileName) {
+    public String store(MultipartFile file, String filename) {
         try {
             if (file.isEmpty()) {
-                throw new StorageException("Cannot save empty file");
+                throw new StorageException("Cannot save an empty file");
             }
 
             String extension = StringUtils.getFilenameExtension(file.getOriginalFilename());
-            String finalFileName = fileName + "." + extension;
+            String finalFileName = filename + "." + extension;
 
             Path destinationFile = rootLocation
-                    .resolve(Paths.get(fileName))
+                    .resolve(Paths.get(finalFileName))
                     .normalize()
                     .toAbsolutePath();
 
@@ -63,7 +63,8 @@ public class FilesSystemStorageService implements StorageService {
             }
 
             return finalFileName;
-        } catch (Exception e) {
+
+        } catch (IOException e) {
             throw new StorageException("Failed to store file", e);
         }
     }
