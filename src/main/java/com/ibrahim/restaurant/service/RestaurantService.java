@@ -18,9 +18,9 @@ public interface RestaurantService {
             Pageable pageable
     );
 
-    Restaurant getRestaurant(String id);
+    Restaurant getRestaurant(String restaurantId);
 
-    Restaurant updateRestaurant(String id, RestaurantUpdateRequest restaurantUpdateRequest);
+    Restaurant updateRestaurant(String restaurantId, RestaurantUpdateRequest restaurantUpdateRequest);
 
-    void deleteRestaurant(String id);
+    void deleteRestaurant(String restaurantId);
 }
