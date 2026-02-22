@@ -79,14 +79,14 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public Restaurant getRestaurant(String id) {
-        return restaurantRepository.findById(id)
-                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: " + id));
+    public Restaurant getRestaurant(String restaurantId) {
+        return restaurantRepository.findById(restaurantId)
+                .orElseThrow(() -> new RestaurantNotFoundException("Restaurant not found with id: " + restaurantId));
     }
 
     @Override
-    public Restaurant updateRestaurant(String id, RestaurantUpdateRequest request) {
-        Restaurant restaurant = getRestaurant(id);
+    public Restaurant updateRestaurant(String restaurantId, RestaurantUpdateRequest request) {
+        Restaurant restaurant = getRestaurant(restaurantId);
 
         GeoLocation newGeoLocation = geoLocationService.geoLocate(
                 request.getAddress()
@@ -111,8 +111,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     }
 
     @Override
-    public void deleteRestaurant(String id) {
-        restaurantRepository.deleteById(id);
+    public void deleteRestaurant(String restaurantId) {
+        restaurantRepository.deleteById(restaurantId);
     }
 
 }
