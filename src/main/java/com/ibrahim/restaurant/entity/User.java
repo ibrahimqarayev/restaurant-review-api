@@ -17,7 +17,7 @@ public class User {
     private String id;
 
     @Field(type = FieldType.Text)
-    private String uname;
+    private String username;
 
     @Field(type = FieldType.Text)
     private String givenName;
