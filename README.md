@@ -144,13 +144,3 @@ Then run the Spring Boot application.
 3. User can create a review for a restaurant.
 4. Reviews are stored and linked to the restaurant.
 5. Restaurants can be searched using Elasticsearch.
-
----
-
-## Future Improvements
-
-* Role-based authorization
-* Review likes and comments
-* Caching layer (Redis)
-* Advanced search filters
-* Microservices architecture
